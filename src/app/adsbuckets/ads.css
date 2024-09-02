@@ -1,0 +1,13 @@
+.app_head_img {
+    background-image: url('../../../public/socials.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.6);
+
+}
+
+.app_head_img::content {
+    content: " ";
+}

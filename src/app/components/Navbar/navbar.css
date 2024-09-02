@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  align-items: center;
+  padding: 0.5rem;
+  color: #d8d2d2;
+  font-family: 'Poppins';
+  background: #080808;
+  /* background: #0f1b2a; */
+  z-index: 1;
+  border-bottom: 1px solid #313232;
+}
+
+
+.mobile-menu {
+    text-align: left;
+}
+
+
+.navbar .logo img {
+    margin-left: 1rem;
+}
+
+.links {
+    text-decoration: none;
+    color: #fdfafa;
+  /* color: #0f1b2a; */
+  font-size: 14px;
+}
+
+.links:hover {
+    color: #30fa56;
+}
+
+
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.hamburger {
+  /* display: none; */
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.line {
+  height: 3px;
+  width: 28px;
+  background-color: #fdfafa;
+  font-weight: 400;
+  margin: 3px 0;
+  transition: 0.4s;
+}
+
+.open .line:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.open .line:nth-child(2) {
+  opacity: 0;
+}
+
+.open .line:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.mobile-menu {
+  /* display: none; */
+  position: absolute;
+  width: 100%;
+  margin-left: -50px;
+  top: 60px;
+  right: 20px;
+  background-color: rgb(241, 236, 236);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu li {
+  padding: 1rem;
+  cursor: pointer;
+  /* border-bottom: 1px solid #555; */
+}
+
+@media screen and (max-width: 767px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    
+  }
+
+  .mobile-menu {
+    display: block;
+
+  }
+
+  .input_ul {
+  display: none;
+  }
+
+  .hide {
+    display: none;
+  }
+}
+
+.the_buttons li{
+  background-color: #30fa56;
+}
+
+.btns {
+  background-color: #30fa56;
+  border-radius: 50px;
+  width: 250px;
+  height: 70px;
+  margin-left: 10px;
+}
+
+
+/* Add these styles for the mobile menu */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 50%; /* Adjust this value based on your design */
+    background-color: #30fa56; /* Set the background color */
+    transition: transform 0.3s ease-in-out; /* Add a transition effect */
+    transform: translateX(100%);
+  }
+  
+  .mobile-menu.show {
+    transform: translateX(0);
+  }
+  
+  .close-button {
+    display: flex;
+    justify-content: flex-start;
+    top: 10px;
+    right: 10px;
+    font-size: 35px;
+    color: #313232;
+    outline: none;
+    border: none;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  
+
+  @media screen and (max-width: 638px) {
+    .navbar .logo img {
+      margin-left: 0.5rem;
+  }
+  }

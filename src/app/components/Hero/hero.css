@@ -1,0 +1,9 @@
+.hero {
+    background-image: url('../../../../public/nav.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 900px;
+    padding-top: 60px;
+    background: #080808;
+}

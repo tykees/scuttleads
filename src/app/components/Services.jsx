@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import DomainSearch from './DomainSearch';
 
 
 function Services() {
@@ -10,7 +11,7 @@ function Services() {
             <source src="/ads.mp4" type="video/mp4"/>
         </video>
         </div>
-       
+       <DomainSearch/>
         <div className='flex justify-center'>
         <h1 className='text-center text-slate-200 text-[80px] leading-tight w-[900px] font-extrabold'>Creative power that goes beyond templates</h1>
         </div>

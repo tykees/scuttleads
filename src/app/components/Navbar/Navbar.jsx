@@ -1,18 +1,21 @@
-"use client"; // Add this line at the beginning
+"use client" // Add this line at the beginning
 
 import React, { useState, useEffect } from 'react';
 import { IoHome } from "react-icons/io5";
 import { BsRocketTakeoff } from "react-icons/bs";
 import { GrDomain } from "react-icons/gr";
 import { IoCloseSharp } from "react-icons/io5";
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import Image from 'next/image';
 import Link from 'next/link';
 import './navbar.css';
+import { UserButton, useUser } from '@clerk/nextjs';
 
 
 
 const Navbar = () => {
+
+  const {user, isLoaded} = useUser();
  
   const [isMobile, setIsMobile] = useState(
     typeof window !== 'undefined' ? window.innerWidth < 764 : false
@@ -131,7 +134,12 @@ const Navbar = () => {
         </div>
       )}
       <div className='hide'>
-      <Link href={"https://meetings.hubspot.com/tim-nero?uuid=43f33b30-2c8e-45c4-9265-987612202f25"}><Button variant="outline" className="text-black w-[150px] h-[50px] bg-primary">Get in Touch</Button></Link> 
+        {isLoaded&&user
+        ?
+        <UserButton/>
+        :
+      <Link href={""}><Button variant="outline" className="text-black w-[150px] h-[50px] bg-primary">Get in Touch</Button></Link> 
+        }
       </div>
     </nav>
     </>

@@ -1,6 +1,8 @@
+"use client"
 import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import AdPlans from '../_components/AdPlans';
 import { FaCheckCircle } from "react-icons/fa";
 
 const page = () => {
@@ -13,6 +15,8 @@ const page = () => {
         <div className='flex justify-center items-center'>
             <Image src='/res.png' width={500} height={500}/>
         </div>
+        <AdPlans/>
+
         <Button variant="" className="text-black text-[20px]">GET OFFER</Button>
         <div className='grid grid-cols-5'>
          <p>.com <span>N22,000</span></p>

@@ -1,12 +1,25 @@
+"use client"
 import React from 'react';
 import Image from 'next/image';
 import { Button } from "@/components/ui/button";
 import { FaCheckCircle } from "react-icons/fa";
 
 import './ads.css';
+import GlobalApi from '../_utils/GlobalApi';
+import { useUser } from '@clerk/nextjs';
 
 
 const page = () => {
+    const { user}  = useUser();
+    console.log(user)
+    
+    const createUserAds = (planName) => {
+        const email = user?.primaryEmailAddress?.emailAddress;
+        GlobalApi.createAds(email, planName).then(resp => {
+          console.log(resp);
+        });
+      };
+
   return (
     <div className='ads_page'>
        <div className='pt-28 app_head_img text-center'>
@@ -29,7 +42,7 @@ const page = () => {
                 </div>
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400">Get Started</Button>
+                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400" onClick={() => createUserAds('Cream Plan')} >Get Started</Button>
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>
@@ -102,7 +115,7 @@ const page = () => {
                 </div>
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-green-400">Get Started</Button>
+                <Button variant="outline"  className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-green-400">Get Started</Button>
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>

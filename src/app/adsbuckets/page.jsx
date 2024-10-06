@@ -3,21 +3,36 @@ import React from 'react';
 import Image from 'next/image';
 import { Button } from "@/components/ui/button";
 import { FaCheckCircle } from "react-icons/fa";
-
+import { toast } from "sonner";
 import './ads.css';
 import GlobalApi from '../_utils/GlobalApi';
 import { useUser } from '@clerk/nextjs';
+import { useRouter } from 'next/navigation';
 
 
 const page = () => {
     const { user}  = useUser();
+    const router = useRouter();
     console.log(user)
     
     const createUserAds = (planName) => {
         const email = user?.primaryEmailAddress?.emailAddress;
         GlobalApi.createAds(email, planName).then(resp => {
           console.log(resp);
+
+          if (resp) {
+            // Show success message
+            toast("You have successfully Enrolled", {
+              description: "Happy Learning!",
+            });
+            // Redirect
+            router.push('/website');
+          }
+        }).catch(error => {
+          toast.error("Enrollment failed. Please try again later.");
+          console.error("Enrollment error:", error);
         });
+        
       };
 
   return (
@@ -69,7 +84,7 @@ const page = () => {
                 </div>
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-blue-400">Get Started</Button>
+                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-blue-400" onClick={() => createUserAds('Sweet Plan')}>Get Started</Button>
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>

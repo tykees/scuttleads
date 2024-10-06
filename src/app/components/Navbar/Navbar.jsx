@@ -73,12 +73,12 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-          <Link href={'/'} className={`links `}>
+          <Link href={'/website'} className={`links `}>
               Get a site
             </Link>
           </li>
           <li>
-            <Link href={'/'} className={`links `} >
+            <Link href={'/adsbuckets'} className={`links `} >
               Ads Buckets
             </Link>
           </li>
@@ -90,7 +90,7 @@ const Navbar = () => {
           {
             user ? 
             <li>
-            <Link href={'/'} className={`profile `} >
+            <Link href={'/profile'} className={`profile `} >
               Profile
             </Link>
           </li>
@@ -111,6 +111,22 @@ const Navbar = () => {
           <IoCloseSharp className='text-white' />
           </button>
           <ul>
+            {
+              user ? 
+              <li>
+              <Link href={'/profile'} className="links flex justify-start gap-3 items-center font-normal text-lg" onClick={handleMenuClick}>
+              <IoHome /> 
+              Profile
+              </Link>
+            </li>
+            :
+            <li>
+            <Link href={'/'} className="links flex justify-start gap-3 items-center font-normal text-lg" onClick={handleMenuClick}>
+            <IoHome /> 
+            Home
+            </Link>
+          </li>
+            }
             <li>
               <Link href={'/'} className="links flex justify-start gap-3 items-center font-normal text-lg" onClick={handleMenuClick}>
               <IoHome /> 
@@ -118,15 +134,15 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href={'/feature'} className="links flex justify-start gap-3 items-center font-normal text-lg" onClick={handleMenuClick}>
+              <Link href={'/website'} className="links flex justify-start gap-3 items-center font-normal text-lg" onClick={handleMenuClick}>
               <BsRocketTakeoff /> 
-              Feature
+              Get a Site
               </Link>
             </li>
             <li>
-              <Link href={'/incorporate'} className="links flex justify-start gap-3 items-center font-normal text-lg" onClick={handleMenuClick}>
+              <Link href={'/adsbuckets'} className="links flex justify-start gap-3 items-center font-normal text-lg" onClick={handleMenuClick}>
               <GrDomain /> 
-               Apps
+               Ads Buckets
               </Link>
             </li>
           </ul>

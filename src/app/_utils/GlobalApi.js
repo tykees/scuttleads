@@ -37,9 +37,26 @@ const createAds = async (email, name) => {
 };
 
 
+const getUserAllAdsPlan=async(email)=>{
+  const query=gql`
+  query MyQuery {
+    useradsplans(where: {userEmail: "`+email+`"}) {
+      userEmail
+      id
+      name
+    }
+  }
+  `
+  const result=await request(MASTER_URL, query)
+  return result;
+}
+
+
+
 export default {
   getAllAdsPlan,
-  createAds
+  createAds,
+  getUserAllAdsPlan
 }
 
 

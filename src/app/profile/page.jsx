@@ -2,12 +2,24 @@
 import { useUser } from '@clerk/nextjs';
 import { Button } from "@/components/ui/button";
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import GlobalApi from '../_utils/GlobalApi';
 
 
-function Profile({}) {
+function Profile({Id}) {
   const { user } = useUser();
   console.log(user)
+  const [userEnrolledAds, setUserEnrolledAds] = useState([]);
+  useEffect(()=>{
+    user&&getYourAds();
+  },[user])
+
+  const getYourAds = ()=> {
+    GlobalApi.getUserAllAdsPlan(user?.primaryEmailAddress?.emailAddress).then(resp =>{
+      console.log(resp.useradsplans);
+      setUserEnrolledAds(resp.useradsplans)
+    })
+  }
 
   return (
     <div>
@@ -23,6 +35,13 @@ function Profile({}) {
               <h3 className='text-center text-slate-200 text-[16px] font-medium'>{user?.createdAt.getMonth() + 1} -</h3> 
               <h3 className='text-center text-slate-200 text-[16px] font-medium'>{user?.createdAt.getFullYear()}</h3> 
               </div>
+              {
+                userEnrolledAds.map((item, index)=>(
+                  <div key={index}>
+                    <h3>{item.name}</h3>
+                  </div>
+                ))
+              }
               <div className='flex justify-center items-center gap-10 mt-16'>
               <Button variant="outline" className="text-black w-[150px] h-[50px]">Get a Site</Button>
               <Button variant="outline" className="text-black w-[150px] h-[50px] bg-green-400">Support</Button>

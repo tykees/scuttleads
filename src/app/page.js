@@ -2,10 +2,10 @@
 import { UserButton, useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-// import Cards from "./components/Cards";
-// import Hero from "./components/Hero/Hero";
-// import Services from "./components/Services";
-// import Started from "./components/Started";
+import Cards from "./components/Cards";
+import Hero from "./components/Hero/Hero";
+import Services from "./components/Services";
+import Started from "./components/Started";
 
 
 export default function Home() {
@@ -13,16 +13,20 @@ export default function Home() {
   const {user, isLoaded} = useUser()
   useEffect(()=>{
     if(user) {
-      router.push("/adsbuckets")
+      router.push("/profile")
     }
     else {
-      isLoaded&&router.push("/website")
+      isLoaded&&router.push("/")
     }
   },[user])
 
   return (
     <div>
      <UserButton afterSignOutUrl="/sign-in" />
+     <Hero/>
+     <Cards/>
+     <Services/>
+     <Started/>
     </div>
   );
 }

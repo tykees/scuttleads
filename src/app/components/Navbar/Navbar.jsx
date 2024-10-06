@@ -84,24 +84,23 @@ const Navbar = () => {
           </li>
           <li>
             <Link href={'/'} className={`links `} >
-              Request Tasks
-            </Link>
-          </li>
-          <li>
-            <Link href={'/'} className={`links `} >
               How it works
             </Link>
           </li>
-          <li>
-            <Link href={'/'} className={`links `} >
-              Blog
+          {
+            user ? 
+            <li>
+            <Link href={'/'} className={`profile `} >
+              Profile
             </Link>
           </li>
+          :
           <li>
-            <Link href={'/'} className={`links `} >
-              About
-            </Link>
-          </li>
+          <Link href={'/'} className={`links `} >
+            
+          </Link>
+        </li>
+          }
         </ul>
    
       )}
@@ -138,7 +137,7 @@ const Navbar = () => {
         ?
         <UserButton/>
         :
-      <Link href={""}><Button variant="outline" className="text-black w-[150px] h-[50px] bg-primary">Get in Touch</Button></Link> 
+      <Link href={"/sign-up"}><Button variant="outline" className="text-black w-[150px] h-[50px] bg-primary">Register</Button></Link> 
         }
       </div>
     </nav>

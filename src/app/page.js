@@ -24,8 +24,8 @@ export default function Home() {
     <div>
      <UserButton afterSignOutUrl="/sign-in" />
      <Hero/>
-     <Cards/>
      <Services/>
+     <Cards/>
      <Started/>
     </div>
   );

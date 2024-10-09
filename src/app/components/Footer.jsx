@@ -36,7 +36,7 @@ const Footer = () => {
                 <p>Careers</p>
             </div>
             <div className='text-slate-400 ml-4 mt-4 md:mt-0 text-center text-[12px]'>
-                <p className='text-center'>Copyright © {year} PocketShuttle. All rights reserved.</p>
+                <p className='text-center'>Copyright © {year} ScuttleAds. All rights reserved.</p>
             </div>
         </div>
     </div>

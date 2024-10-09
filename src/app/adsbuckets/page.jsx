@@ -8,10 +8,11 @@ import './ads.css';
 import GlobalApi from '../_utils/GlobalApi';
 import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 
 const page = () => {
-    const { user}  = useUser();
+    const { user, isLoaded}  = useUser();
     const router = useRouter();
     console.log(user)
     
@@ -47,7 +48,7 @@ const page = () => {
        <h1 className='text-center text-[50px] font-extrabold text-white'>30 Days Category</h1>
        <div className='grid grid-cols-1 place-items-center justify-center items-center'>
             <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-pink-400 h-[360px] shadow-md rounded-lg'>
-            <p className='text-[18px] text-pink-400 text-left'>Cream Plan</p>
+            <p className='text-[18px] text-pink-400 text-left'>Adbooster</p>
             <p className='text-slate-300 text-[12px] text-left'>4 Ads Queue</p>
                 <div className='flex justify-between items-center'>
                 <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>$12</h4>
@@ -57,13 +58,18 @@ const page = () => {
                 </div>
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400" onClick={() => createUserAds('Cream Plan')} >Get Started</Button>
+                    {
+                        user&&isLoaded ?
+                        <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400" onClick={() => createUserAds('Adbooster')} >Get Started</Button>
+                        :
+                     <Link href={"/sign-up"}> <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400">Get Started</Button> </Link>  
+                    }
+              
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> Banner Design</li>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> 90 Days</li>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> Reach 10,000</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> Ads Thumbnail Design</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> Reach 2,000 - 3,000 people</li>
                     <li className='flex items-center gap-2'><FaCheckCircle /> Facebook and Instagram</li>
                     <li className='flex items-center gap-2'><FaCheckCircle /> Right Location</li>
                 </ul>
@@ -74,7 +80,7 @@ const page = () => {
        <h1 className='text-center text-[50px] font-extrabold text-white'>90 Days Category</h1>
        <div className='grid grid-cols-3 place-items-center justify-center items-center'>
             <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-blue-400 h-[360px] shadow-md rounded-lg'>
-            <p className='text-[18px] text-blue-400 text-left'>Cream Plan</p>
+            <p className='text-[18px] text-blue-400 text-left'>BoostMax</p>
             <p className='text-slate-300 text-[12px] text-left'>4 Ads Queue</p>
                 <div className='flex justify-between items-center'>
                 <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>$32</h4>
@@ -84,7 +90,12 @@ const page = () => {
                 </div>
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-blue-400" onClick={() => createUserAds('Sweet Plan')}>Get Started</Button>
+                {
+                user&&isLoaded ?
+                        <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400" onClick={() => createUserAds('BoostMax')} >Get Started</Button>
+                        :
+                     <Link href={"/sign-up"}> <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400">Get Started</Button> </Link>  
+                    }
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>
@@ -97,7 +108,7 @@ const page = () => {
                 </div>
             </div>
             <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-teal-400 h-[360px] shadow-md rounded-lg'>
-            <p className='text-[18px] text-teal-400 text-left'>Cream Plan</p>
+            <p className='text-[18px] text-teal-400 text-left'>BoostPlus</p>
             <p className='text-slate-300 text-[12px] text-left'>4 Ads Queue</p>
                 <div className='flex justify-between items-center'>
                 <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>$61</h4>
@@ -107,7 +118,12 @@ const page = () => {
                 </div>
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-teal-400">Get Started</Button>
+                {
+                        user&&isLoaded ?
+                        <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400" onClick={() => createUserAds('BoostPlus')} >Get Started</Button>
+                        :
+                     <Link href={"/sign-up"}> <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400">Get Started</Button> </Link>  
+                    }
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>
@@ -120,7 +136,7 @@ const page = () => {
                 </div>
             </div>
             <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-green-400 h-[360px] shadow-md rounded-lg'>
-            <p className='text-[18px] text-green-400 text-left'>Cream Plan</p>
+            <p className='text-[18px] text-green-400 text-left'>BoostPro</p>
             <p className='text-slate-300 text-[12px] text-left'>4 Ads Queue</p>
                 <div className='flex justify-between items-center'>
                 <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>$150</h4>
@@ -130,7 +146,12 @@ const page = () => {
                 </div>
                 </div>
                 <div className='mt'>
-                <Button variant="outline"  className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-green-400">Get Started</Button>
+                {
+                        user&&isLoaded ?
+                        <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400" onClick={() => createUserAds('BoostPro')} >Get Started</Button>
+                        :
+                     <Link href={"/sign-up"}> <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400">Get Started</Button> </Link>  
+                    }
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>
@@ -146,7 +167,7 @@ const page = () => {
        <h1 className='text-center text-[50px] font-extrabold text-white'>180 Days Category</h1>
        <div className='grid grid-cols-3 place-items-center justify-center items-center'>
             <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-blue-400 h-[360px] shadow-md rounded-lg'>
-            <p className='text-[18px] text-blue-400 text-left'>Cream Plan</p>
+            <p className='text-[18px] text-blue-400 text-left'>Max</p>
             <p className='text-slate-300 text-[12px] text-left'>4 Ads Queue</p>
                 <div className='flex justify-between items-center'>
                 <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>$63</h4>
@@ -156,7 +177,12 @@ const page = () => {
                 </div>
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-blue-400">Get Started</Button>
+                {
+                        user&&isLoaded ?
+                        <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400" onClick={() => createUserAds('Max')} >Get Started</Button>
+                        :
+                     <Link href={"/sign-up"}> <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400">Get Started</Button> </Link>  
+                    }
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>
@@ -169,7 +195,7 @@ const page = () => {
                 </div>
             </div>
             <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-teal-400 h-[360px] shadow-md rounded-lg'>
-            <p className='text-[18px] text-teal-400 text-left'>Cream Plan</p>
+            <p className='text-[18px] text-teal-400 text-left'>Elite</p>
             <p className='text-slate-300 text-[12px] text-left'>4 Ads Queue</p>
                 <div className='flex justify-between items-center'>
                 <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>$122</h4>
@@ -179,7 +205,12 @@ const page = () => {
                 </div>
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-teal-400">Get Started</Button>
+                {
+                        user&&isLoaded ?
+                        <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400" onClick={() => createUserAds('Elite')} >Get Started</Button>
+                        :
+                     <Link href={"/sign-up"}> <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400">Get Started</Button> </Link>  
+                    }
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>
@@ -192,7 +223,7 @@ const page = () => {
                 </div>
             </div>
             <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-teal-400 h-[360px] shadow-md rounded-lg'>
-            <p className='text-[18px] text-teal-400 text-left'>Cream Plan</p>
+            <p className='text-[18px] text-teal-400 text-left'>HyperPro</p>
             <p className='text-slate-300 text-[12px] text-left'>4 Ads Queue</p>
                 <div className='flex justify-between items-center'>
                 <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>$300</h4>
@@ -202,7 +233,12 @@ const page = () => {
                 </div>
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-teal-400">Get Started</Button>
+                {
+                        user&&isLoaded ?
+                        <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400" onClick={() => createUserAds('HyperPro')} >Get Started</Button>
+                        :
+                     <Link href={"/sign-up"}> <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400">Get Started</Button> </Link>  
+                    }
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>

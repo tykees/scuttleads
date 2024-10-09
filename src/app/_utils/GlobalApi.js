@@ -36,6 +36,26 @@ const createAds = async (email, name) => {
   return result;
 };
 
+const createSite = async (email, name) => {
+  const query = gql`
+    mutation CreateUsersiteRequest($email: String!, $name: String!) {
+      createUsersiterequest(data: {name: $name, userEmail: $email}) {
+        id
+        name
+        userEmail
+      }
+    }
+  `;
+
+  const variables = {
+    email: email,
+    name: name
+  };
+
+  const result = await request(MASTER_URL, query, variables);
+  return result;
+};
+
 
 const getUserAllAdsPlan=async(email)=>{
   const query=gql`
@@ -56,7 +76,8 @@ const getUserAllAdsPlan=async(email)=>{
 export default {
   getAllAdsPlan,
   createAds,
-  getUserAllAdsPlan
+  getUserAllAdsPlan,
+  createSite
 }
 
 

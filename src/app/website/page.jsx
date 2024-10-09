@@ -4,21 +4,48 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import AdPlans from '../_components/AdPlans';
 import { FaCheckCircle } from "react-icons/fa";
+import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
+import { useUser } from '@clerk/nextjs';
+import GlobalApi from '../_utils/GlobalApi';
 
 const page = () => {
+    const { user, isLoaded}  = useUser();
+    const router = useRouter();
+    console.log(user)
+    
+    const createUserSite = (planName) => {
+        const email = user?.primaryEmailAddress?.emailAddress;
+        GlobalApi.createSite(email, planName).then(resp => {
+          console.log(resp);
+
+          if (resp) {
+            // Show success message
+            toast("You have successfully Enrolled", {
+              description: "Happy Learning!",
+            });
+            // Redirect
+            router.push('/adsbuckets');
+          }
+        }).catch(error => {
+          toast.error("Enrollment failed. Please try again later.");
+          console.error("Enrollment error:", error);
+        });
+        
+      };
   return (
-    <div className='mt-40 text-center'>
-        <h2>Cheapest Way to get your business online.</h2>
-        <h1>Over 50% OFF</h1>
-        <p>On All Responsive Website and UI designs</p>
-        <p>Mobile + Desktop + Tablet</p>
+    <div className='pt-40 web_page text-center'>
+        <h2 className='text-slate-400'>Cheapest Way to get your business online.</h2>
+        <h1 className='text-green-400 text-[50px] font-extrabold'>Over 50% OFF</h1>
+        <p className='text-slate-400'>On All Responsive Website and UI designs</p>
+        <p className='text-slate-400'>Mobile + Desktop + Tablet</p>
         <div className='flex justify-center items-center'>
             <Image src='/res.png' width={500} height={500}/>
         </div>
         <AdPlans/>
 
-        <Button variant="" className="text-black text-[20px]">GET OFFER</Button>
-        <div className='grid grid-cols-5'>
+        {/* <Button variant="" className="text-black text-[20px]">GET OFFER</Button> */}
+        {/* <div className='grid text-slate-300 grid-cols-5'>
          <p>.com <span>N22,000</span></p>
          <p>.org <span>N12,500</span></p>
          <p>.ng <span>N10,000</span></p>
@@ -29,34 +56,33 @@ const page = () => {
          <p>.store <span>N10,000</span></p>
          <p>.tech <span>N10,000</span></p>
          <p>.org.ng <span>5,000</span></p>
-        </div>
+        </div> */}
 
-        <div className='grid grid-cols-3 place-items-center justify-center items-center'>
-            <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-blue-400 h-[360px] shadow-md rounded-lg'>
-            <p className='text-[18px] text-blue-400 text-left'>1 Page Sales Site</p>
-            <p className='text-slate-300 text-[12px] text-left'>4 Ads Queue</p>
+        <div className='grid grid-cols-4 place-items-center justify-center items-center'>
+            <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-blue-400 h-[420px] shadow-md rounded-lg'>
+            <p className='text-[18px] text-blue-400 text-left'>1 Page Sales/Contact</p>
                 <div className='flex justify-between items-center'>
-                <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>N20,000</h4>
+                <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>N43,000</h4>
                
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-blue-400">Get Started</Button>
+                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-blue-400" onClick={() => createUserSite('FullStack')} >Get Started</Button>
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> Banner Design</li>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> 90 Days</li>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> Reach 10,000</li>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> Facebook and Instagram</li>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> Right Location</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle />1 Year Host Plan</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle />1 Year Domain</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> Managed by ScuttleAds</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> Shared Hosting</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> SEO</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> Customer Support</li>
                 </ul>
                 </div>
             </div>
-            <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-teal-400 h-[360px] shadow-md rounded-lg'>
-            <p className='text-[18px] text-teal-400 text-left'>Cream Plan</p>
+            <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-teal-400 h-[420px] shadow-md rounded-lg'>
             <p className='text-slate-300 text-[12px] text-left'>6 Pages Standard</p>
                 <div className='flex justify-between items-center'>
-                <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>N50,000</h4>
+                <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>N80,000</h4>
                 
                 </div>
                 <div className='mt'>
@@ -64,17 +90,43 @@ const page = () => {
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> Banner Design</li>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> 90 Days</li>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> Reach 10,000</li>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> Facebook and Instagram</li>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> Right Location</li>
+                <li className='flex items-center gap-2'><FaCheckCircle />1 Year Host Plan</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle />1 Year Domain</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> WP Dashboard</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> WP Hosting</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> 4 Subdomains</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> 10 Business mail</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle />SEO</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> Manage by ScuttleAds/Owner</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> More Customer Support</li>
                 </ul>
                 </div>
             </div>
-            <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-teal-400 h-[360px] shadow-md rounded-lg'>
-            <p className='text-[18px] text-teal-400 text-left'>Cream Plan</p>
-            <p className='text-slate-300 text-[12px] text-left'>Pro State FullStack</p>
+            <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-teal-400 h-[420px] shadow-md rounded-lg'>
+            <p className='text-slate-300 text-[12px] text-left'>Extendable Business</p>
+                <div className='flex justify-between items-center'>
+                <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>N125,000</h4>
+               
+                </div>
+                <div className='mt'>
+                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-teal-400">Get Started</Button>
+                </div>
+                <div className=' pt-4 text-slate-300 text-[15px] text-left'>
+                <ul>
+                <li className='flex items-center gap-2'><FaCheckCircle />1 Year Host Plan</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle />1 Year Domain</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> WP Dashboard</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> WP Hosting</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> 5 Subdomains</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> 10 Business mail</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle />SEO</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> Manage by ScuttleAds/Owner</li>
+                    <li className='flex items-center gap-2'><FaCheckCircle /> Piority Customer Support</li>
+                </ul>
+                </div>
+            </div>
+            <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-teal-400 h-[420px] shadow-md rounded-lg'>
+            <p className='text-slate-300 text-[12px] text-left'>Full Stack + Mobile App</p>
                 <div className='flex justify-between items-center'>
                 <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>Contact Us</h4>
                
@@ -84,11 +136,6 @@ const page = () => {
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> Banner Design</li>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> 90 Days</li>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> Reach 10,000</li>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> Facebook and Instagram</li>
-                    <li className='flex items-center gap-2'><FaCheckCircle /> Right Location</li>
                 </ul>
                 </div>
             </div>

@@ -69,29 +69,29 @@ const Navbar = () => {
         <ul className="nav-links flex justify-center gap-2 text-md text-center">
           <li>
           <Link href={'/'} className={`links `} >
-              Home
+              HOME
             </Link>
           </li>
           <li>
           <Link href={'/website'} className={`links `}>
-              Get a site
+              BUILD
             </Link>
           </li>
           <li>
             <Link href={'/adsbuckets'} className={`links `} >
-              Ads Buckets
+              BUCKET
             </Link>
           </li>
           <li>
             <Link href={'/'} className={`links `} >
-              How it works
+              HOW IT WORKS
             </Link>
           </li>
           {
             user ? 
             <li>
             <Link href={'/profile'} className={`profile `} >
-              Profile
+              PROFILE
             </Link>
           </li>
           :
@@ -136,13 +136,13 @@ const Navbar = () => {
             <li>
               <Link href={'/website'} className="links flex justify-start gap-3 items-center font-normal text-lg" onClick={handleMenuClick}>
               <BsRocketTakeoff /> 
-              Get a Site
+              BUILD
               </Link>
             </li>
             <li>
               <Link href={'/adsbuckets'} className="links flex justify-start gap-3 items-center font-normal text-lg" onClick={handleMenuClick}>
               <GrDomain /> 
-               Ads Buckets
+              BUCKETS
               </Link>
             </li>
           </ul>
@@ -153,7 +153,7 @@ const Navbar = () => {
         ?
         <UserButton/>
         :
-      <Link href={"/sign-up"}><Button variant="outline" className="text-black w-[150px] h-[50px] bg-primary">Register</Button></Link> 
+      <Link href={"/sign-up"}><Button variant="outline" className="text-black w-[150px] h-[50px] bg-primary">REGISTER</Button></Link> 
         }
       </div>
     </nav>

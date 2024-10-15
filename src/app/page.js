@@ -13,8 +13,8 @@ export default function Home() {
   const {user, isLoaded} = useUser()
   useEffect(()=>{
     if(user) {
-      router.push("/profile")
-    }
+      router.push("/")
+    } 
     else {
       isLoaded&&router.push("/")
     }

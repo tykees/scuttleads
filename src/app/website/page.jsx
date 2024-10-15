@@ -19,12 +19,19 @@ const page = () => {
         GlobalApi.createSite(email, planName).then(resp => {
           console.log(resp);
 
-          if (resp) {
+          if (resp?.createUsersiterequest?.name === "One Page Sales/Contact") {
             // Show success message
             toast("You have successfully Enrolled", {
               description: "Happy Learning!",
             });
             // Redirect
+            router.push('/onepage');
+          } else if(resp?.createUsersiterequest?.name === "6 Pages Standard") {
+
+            toast("You have successfully Enrolled", {
+              description: "Happy Learning!",
+            });
+
             router.push('/adsbuckets');
           }
         }).catch(error => {
@@ -60,13 +67,13 @@ const page = () => {
 
         <div className='grid grid-cols-4 place-items-center justify-center items-center'>
             <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-blue-400 h-[420px] shadow-md rounded-lg'>
-            <p className='text-[18px] text-blue-400 text-left'>1 Page Sales/Contact</p>
+            <p className='text-[18px] text-blue-400 text-left'>One Page Sales/Contact</p>
                 <div className='flex justify-between items-center'>
                 <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>N43,000</h4>
                
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-blue-400" onClick={() => createUserSite('FullStack')} >Get Started</Button>
+                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-blue-400" onClick={() => createUserSite('One Page Sales/Contact')} >Get Started</Button>
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>
@@ -86,7 +93,7 @@ const page = () => {
                 
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-teal-400">Get Started</Button>
+                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-teal-400" onClick={() => createUserSite('6 Pages Standard')}>Get Started</Button>
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>
@@ -109,7 +116,7 @@ const page = () => {
                
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-teal-400">Get Started</Button>
+                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-teal-400" onClick={() => createUserSite('Extendable Business')}>Get Started</Button>
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>

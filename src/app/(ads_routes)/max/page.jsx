@@ -10,7 +10,7 @@ function Max() {
         <div className=''>
             <div className='md:w-[500px] w-[350px] block m-auto'>
             <Image className=' block m-auto mt-10'  src={'/basket.gif'} width={100} height={100} alt="hero"/>
-              <p className='text-[20px] text-center text-slate-100 leading-none mt-3 font-thin'>We Have Received Your Request For The <span className=''></span> <br/> <span className='text-[30px] font-extrabold '>6 Pages Website<br/></span></p>
+              <p className='text-[20px] text-center text-slate-100 leading-none mt-3 font-thin'>We Have Received Your Request For The <span className=''></span> <br/> <span className='text-[30px] font-extrabold '>Max<br/></span></p>
               <div className='border rounded-lg h-[200px] mt-5 shadow-lg'>
               <p className='md:w-[500px] w-[350px] mt-5 text-center text-slate-400 px-10'>Be rest assured that you will get the best of our service and a developer will be assigned to you to facilitate the development within the period of 3 days, max.</p>
               <p className='md:w-[500px] w-[350px] mt-5 text-center text-slate-400'>Upon payment, you will receive a mail on the process of development.</p>

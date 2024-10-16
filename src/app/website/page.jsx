@@ -65,7 +65,7 @@ const page = () => {
          <p>.org.ng <span>5,000</span></p>
         </div> */}
 
-        <div className='grid grid-cols-4 place-items-center justify-center items-center'>
+        <div className='grid md:grid-cols-4 grid-cols-1 place-items-center justify-center items-center'>
             <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-blue-400 h-[420px] shadow-md rounded-lg'>
             <p className='text-[18px] text-blue-400 text-left'>One Page Sales/Contact</p>
                 <div className='flex justify-between items-center'>

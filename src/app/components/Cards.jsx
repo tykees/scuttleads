@@ -5,7 +5,7 @@ function Cards() {
   return (
     <div>
         <div className='container mx-auto'>
-            <h1 className='text-[90px] mt-20 leading-none font-extrabold'>We&apos;ll help you <br/> get started</h1>
+            <h1 className='md:text-[90px] text-[50px] mt-20 leading-none font-extrabold'>We&apos;ll help you <br/> get started</h1>
             <p className='mt-6'>Sneak peek of a few websites to view.<br/>We build based on your prefrences.</p>
             <div className='md:flex text-center justify-around gap-5 m-5 flex-wrap'>
             <div className='w-[300px] p-4 bg-inherit border my-1 hover:shadow-xl transition-all border-slate-300 h-[360px] shadow-md rounded-lg'>

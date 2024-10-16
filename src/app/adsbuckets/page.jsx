@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 
-const page = () => {
+const Page = () => {
     const { user, isLoaded}  = useUser();
     const router = useRouter();
     console.log(user)
@@ -255,4 +255,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

@@ -9,7 +9,7 @@ import { toast } from 'sonner';
 import { useUser } from '@clerk/nextjs';
 import GlobalApi from '../_utils/GlobalApi';
 
-const page = () => {
+const Page = () => {
     const { user, isLoaded}  = useUser();
     const router = useRouter();
     console.log(user)
@@ -151,4 +151,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

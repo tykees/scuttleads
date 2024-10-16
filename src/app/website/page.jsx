@@ -139,7 +139,7 @@ const Page = () => {
                
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-teal-400">Get Started</Button>
+                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-teal-400" onClick={() => createUserSite('Extendable Business')}>Get Started</Button>
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>

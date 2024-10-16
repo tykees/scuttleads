@@ -111,6 +111,14 @@ const Navbar = () => {
           <IoCloseSharp className='text-white' />
           </button>
           <ul>
+          <li className=''>
+            {isLoaded&&user
+            ?
+            <UserButton/>
+              :
+           <Link href={"/sign-up"}><Button variant="outline" className="text-black w-[150px] h-[50px] bg-primary">REGISTER</Button></Link> 
+              }
+            </li>
             {
               user ? 
               <li>
@@ -123,16 +131,10 @@ const Navbar = () => {
             <li>
             <Link href={'/'} className="links flex justify-start gap-3 items-center font-normal text-lg" onClick={handleMenuClick}>
             <IoHome /> 
-            Home
+            HOME
             </Link>
           </li>
             }
-            <li>
-              <Link href={'/'} className="links flex justify-start gap-3 items-center font-normal text-lg" onClick={handleMenuClick}>
-              <IoHome /> 
-              Home
-              </Link>
-            </li>
             <li>
               <Link href={'/website'} className="links flex justify-start gap-3 items-center font-normal text-lg" onClick={handleMenuClick}>
               <BsRocketTakeoff /> 
@@ -143,6 +145,12 @@ const Navbar = () => {
               <Link href={'/adsbuckets'} className="links flex justify-start gap-3 items-center font-normal text-lg" onClick={handleMenuClick}>
               <GrDomain /> 
               BUCKETS
+              </Link>
+            </li>
+            <li>
+              <Link href={'/adsbuckets'} className="links flex justify-start gap-3 items-center font-normal text-lg" onClick={handleMenuClick}>
+              <GrDomain /> 
+              HOW IT WORKS
               </Link>
             </li>
           </ul>

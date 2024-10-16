@@ -146,8 +146,8 @@
     top: 0;
     right: 0;
     height: 100%;
-    width: 50%; /* Adjust this value based on your design */
-    background-color: #30fa56; /* Set the background color */
+    width: 100%; /* Adjust this value based on your design */
+    background-color: #080808; /* Set the background color */
     transition: transform 0.3s ease-in-out; /* Add a transition effect */
     transform: translateX(100%);
   }

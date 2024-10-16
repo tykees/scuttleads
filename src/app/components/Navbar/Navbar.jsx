@@ -83,7 +83,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href={'/'} className={`links `} >
+            <Link href={'/how'} className={`links `} >
               HOW IT WORKS
             </Link>
           </li>
@@ -148,7 +148,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href={'/adsbuckets'} className="links flex justify-start gap-3 items-center font-normal text-lg" onClick={handleMenuClick}>
+              <Link href={'/how'} className="links flex justify-start gap-3 items-center font-normal text-lg" onClick={handleMenuClick}>
               <GrDomain /> 
               HOW IT WORKS
               </Link>

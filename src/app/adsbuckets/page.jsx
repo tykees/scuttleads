@@ -21,13 +21,50 @@ const Page = () => {
         GlobalApi.createAds(email, planName).then(resp => {
           console.log(resp);
 
-          if (resp) {
+          if (resp?.createUseradsplan?.name === "Adbooster") {
             // Show success message
             toast("You have successfully Enrolled", {
               description: "Happy Learning!",
             });
             // Redirect
-            router.push('/website');
+            router.push('/adsbooster');
+          } else if(resp?.createUseradsplan?.name === "BoostMax") {
+
+            toast("You have successfully Enrolled", {
+              description: "Happy Learning!",
+            });
+
+            router.push('/boostmax');
+          } else if(resp?.createUseradsplan?.name === "BoostPlus") {
+            toast("You have successfully Enrolled", {
+              description: "Happy Learning!",
+            });
+
+            router.push('/boostplus');
+          } else if(resp?.createUseradsplan?.name === "BoostPro") {
+            toast("You have successfully Enrolled", {
+                description: "Happy Learning!",
+              });
+  
+              router.push('/boostpro');
+          } else if(resp?.createUseradsplan?.name === "Max") {
+            toast("You have successfully Enrolled", {
+                description: "Happy Learning!",
+              });
+  
+              router.push('/max');
+          } else if(resp?.createUseradsplan?.name === "Elite") {
+            toast("You have successfully Enrolled", {
+                description: "Happy Learning!",
+              });
+  
+              router.push('/elite');
+          } else if(resp?.createUseradsplan?.name === "HyperPro") {
+            toast("You have successfully Enrolled", {
+                description: "Happy Learning!",
+              });
+  
+              router.push('/hyperpro');
           }
         }).catch(error => {
           toast.error("Enrollment failed. Please try again later.");
@@ -35,7 +72,6 @@ const Page = () => {
         });
         
       };
-
   return (
     <div className='ads_page'>
        <div className='pt-28 app_head_img text-center'>

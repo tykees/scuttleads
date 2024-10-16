@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { FaCheckCircle } from "react-icons/fa";
 
 
-function Onepage() {
+function Boostmax() {
   return (
     <div className='md:px-20 px-6 pt-28 onepage'>
         <div className=''>
@@ -25,4 +25,4 @@ function Onepage() {
   )
 }
 
-export default Onepage
+export default Boostmax

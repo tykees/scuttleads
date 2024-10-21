@@ -79,7 +79,13 @@ const Page = () => {
                
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-blue-400" onClick={() => createUserSite('One Page Sales/Contact')} >Get Started</Button>
+                  {
+                    user&&isLoaded ?
+                    <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-blue-400" onClick={() => createUserSite('One Page Sales/Contact')} >Get Started</Button>
+                    :
+                    <Link href={"/sign-up"}> <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-blue-400">Get Started</Button> </Link>  
+                  }
+               
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>
@@ -99,7 +105,13 @@ const Page = () => {
                 
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-teal-400" onClick={() => createUserSite('6 Pages Standard')}>Get Started</Button>
+                  {
+                    user&&isLoaded? 
+                    <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-teal-400" onClick={() => createUserSite('6 Pages Standard')}>Get Started</Button>
+                    :
+                    <Link href={"/sign-up"}> <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-teal-400">Get Started</Button> </Link>  
+                  }
+               
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>
@@ -122,7 +134,13 @@ const Page = () => {
                
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-green-400" onClick={() => createUserSite('Extendable')}>Get Started</Button>
+                  {
+                    user&&isLoaded?
+                    <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-green-400" onClick={() => createUserSite('Extendable')}>Get Started</Button>
+                    :
+                    <Link href={"/sign-up"}> <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-green-400">Get Started</Button> </Link> 
+                  }
+               
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>

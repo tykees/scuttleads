@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Button } from "@/components/ui/button";
 import { FaCheckCircle } from "react-icons/fa";
+import Link from 'next/link';
 
 
 function Hyperpro() {
@@ -16,7 +17,7 @@ function Hyperpro() {
               <p className='md:w-[500px] w-[350px] mt-5 text-center text-slate-400'>Upon payment, you will receive a mail on your plan status and when your ads will be live.</p>
               </div>
               <div className='fle gap-8 mt-[40px]'>
-              <Button variant="outline" className="bg-transparent border border-primary md:w-[500px] w-[350px] text-[23px] h-[50px] text-primary">Pay  N510,000 With PayStack</Button>
+           <Link href={"https://paystack.com/pay/t6yixsjryk"}>   <Button variant="outline" className="bg-transparent border border-primary md:w-[500px] w-[350px] text-[23px] h-[50px] text-primary">Pay  N510,000 With PayStack</Button></Link>
               <Button variant="outline" className="text-black mt-4 border border-slate-700 md:w-[500px] w-[350px] text-[23px] h-[50px] bg-primary">Transfer  N510,000</Button>
               </div>
             </div>

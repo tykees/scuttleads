@@ -20,7 +20,7 @@ function Services() {
       </div>
 
       <div className='flex justify-center'>
-        <h1 className='text-center text-slate-200 md:text-[80px] text-[40px] leading-tight md:w-[800px] w-[300px] font-extrabold'>
+        <h1 className='text-center pt-10 text-slate-200 md:text-[80px] text-[40px] leading-tight md:w-[800px] w-[300px] font-extrabold'>
           Save over 60% on Facebook and Instagram Ads
         </h1>
       </div>

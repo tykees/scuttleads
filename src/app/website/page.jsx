@@ -72,7 +72,7 @@ const Page = () => {
         </div> */}
 
         <div className='grid md:grid-cols-4 grid-cols-1 place-items-center justify-center items-center'>
-            <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-blue-400 h-[420px] shadow-md rounded-lg'>
+            <div className='border mt-10 w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-blue-400 h-[420px] shadow-md rounded-lg'>
             <p className='text-[18px] text-blue-400 text-left'>One Page Sales/Contact</p>
                 <div className='flex justify-between items-center'>
                 <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>N43,000</h4>
@@ -92,7 +92,7 @@ const Page = () => {
                 </ul>
                 </div>
             </div>
-            <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-teal-400 h-[420px] shadow-md rounded-lg'>
+            <div className='border mt-10 w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-teal-400 h-[420px] shadow-md rounded-lg'>
             <p className='text-slate-300 text-[12px] text-left'>6 Pages Standard</p>
                 <div className='flex justify-between items-center'>
                 <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>N80,000</h4>
@@ -115,14 +115,14 @@ const Page = () => {
                 </ul>
                 </div>
             </div>
-            <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-teal-400 h-[420px] shadow-md rounded-lg'>
+            <div className='border mt-10 w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-green-400 h-[420px] shadow-md rounded-lg'>
             <p className='text-slate-300 text-[12px] text-left'>Extendable Business</p>
                 <div className='flex justify-between items-center'>
                 <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>N125,000</h4>
                
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-teal-400" onClick={() => createUserSite('Extendable')}>Get Started</Button>
+                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-green-400" onClick={() => createUserSite('Extendable')}>Get Started</Button>
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>
@@ -138,14 +138,14 @@ const Page = () => {
                 </ul>
                 </div>
             </div>
-            <div className='border w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-teal-400 h-[420px] shadow-md rounded-lg'>
+            <div className='border mt-10 w-[300px] p-4 bg-inherit  my-1 hover:shadow-xl border-pink-400 h-[420px] shadow-md rounded-lg'>
             <p className='text-slate-300 text-[12px] text-left'>Full Stack + Mobile App</p>
                 <div className='flex justify-between items-center'>
                 <h4 className='text-left text-slate-300 text-[48px] font-extrabold'>Contact Us</h4>
                
                 </div>
                 <div className='mt'>
-                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-teal-400" onClick={() => createUserSite('Extendable Business')}>Get Started</Button>
+                <Button variant="outline" className="text-black border-none w-[100%] mt-5 h-[50px] text-[20px] bg-pink-400" onClick={() => createUserSite('Extendable Business')}>Get Started</Button>
                 </div>
                 <div className=' pt-4 text-slate-300 text-[15px] text-left'>
                 <ul>

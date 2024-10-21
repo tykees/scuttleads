@@ -8,6 +8,8 @@ import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { useUser } from '@clerk/nextjs';
 import GlobalApi from '../_utils/GlobalApi';
+import Link from 'next/link';
+
 
 const Page = () => {
     const { user, isLoaded}  = useUser();
@@ -34,7 +36,7 @@ const Page = () => {
 
             router.push('/sixpage');
           } else if(resp?.createUsersiterequest?.name === "Extendable") {
-            toast("You have successfully Enrolled", {
+            toast("You have Enrolled", {
               description: "Happy Learning!",
             });
 
